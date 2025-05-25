@@ -7,16 +7,7 @@ A full-stack PDF document management system where users can:
 * Ask AI-powered questions based on uploaded document content
 * Interact with a user-friendly interface built in React.js
 
----
 
-## 🚀 Live Links
-
-| Layer       | Link                   |
-| ----------- | ---------------------- |
-| 🌐 Frontend | *\[Your Frontend URL]* |
-| 🔙 Backend  | *\[Your Backend URL]*  |
-
----
 
 ## 💡 Tech Stack
 
