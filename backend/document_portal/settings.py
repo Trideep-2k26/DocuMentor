@@ -120,7 +120,7 @@ SIMPLE_JWT = {
 CORS_ALLOW_ALL_ORIGINS = False
 
 CORS_ALLOWED_ORIGINS = [
-    "https://your-frontend.onrender.com",
+    "http://docu-mentor-two.vercel.app",
     "http://localhost:3000",
     "http://127.0.0.1:3000",
 ]
