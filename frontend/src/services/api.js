@@ -3,7 +3,6 @@ import axios from 'axios';
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000/api';
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8000';
 
-// Create axios instance
 const api = axios.create({
   baseURL: API_URL,
   headers: {
@@ -11,7 +10,7 @@ const api = axios.create({
   },
 });
 
-// Request interceptor to add token
+
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('access_token');
@@ -25,7 +24,7 @@ api.interceptors.request.use(
   }
 );
 
-// Response interceptor to handle token refresh
+
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
@@ -47,7 +46,7 @@ api.interceptors.response.use(
           originalRequest.headers.Authorization = `Bearer ${access}`;
           return api(originalRequest);
         } catch (refreshError) {
-          // Refresh failed, redirect to login
+      
           localStorage.removeItem('access_token');
           localStorage.removeItem('refresh_token');
           localStorage.removeItem('user');
@@ -55,7 +54,7 @@ api.interceptors.response.use(
           return Promise.reject(refreshError);
         }
       } else {
-        // No refresh token, redirect to login
+       
         localStorage.removeItem('access_token');
         localStorage.removeItem('refresh_token');
         localStorage.removeItem('user');
@@ -67,7 +66,7 @@ api.interceptors.response.use(
   }
 );
 
-// Auth APIs
+
 export const authAPI = {
   register: (userData) => api.post('/register/', userData),
   login: (credentials) => api.post('/login/', credentials),
@@ -75,7 +74,7 @@ export const authAPI = {
   getProfile: () => api.get('/profile/'),
 };
 
-// Document APIs
+
 export const documentAPI = {
   getDocuments: () => api.get('/documents/'),
   uploadDocument: (formData) => {
@@ -89,12 +88,12 @@ export const documentAPI = {
   getDocument: (id) => api.get(`/documents/${id}/`),
 };
 
-// Question API
+
 export const questionAPI = {
   askQuestion: (data) => api.post('/ask/', data),
 };
 
-// Utility functions
+
 export const isAuthenticated = () => {
   const token = localStorage.getItem('access_token');
   return !!token;
