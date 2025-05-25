@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY', default='django-insecure-change-me')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['*']  # You can update this with your Render domain in production
+ALLOWED_HOSTS = ['documentor-1-backend-1.onrender.com','localhost','127.0.0.1']  # You can update this with your Render domain in production
 
 # Installed apps
 INSTALLED_APPS = [
