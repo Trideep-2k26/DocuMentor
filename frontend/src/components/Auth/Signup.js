@@ -20,7 +20,7 @@ const Signup = () => {
       ...formData,
       [e.target.name]: e.target.value,
     });
-    // Clear specific field error when user starts typing
+
     if (errors[e.target.name]) {
       setErrors({
         ...errors,
