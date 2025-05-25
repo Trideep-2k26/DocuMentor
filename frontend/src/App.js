@@ -7,7 +7,7 @@ import DocumentList from './components/Dashboard/DocumentList';
 import AskQuestion from './components/Dashboard/AskQuestion';
 import { isAuthenticated, getUser, clearAuthData, authAPI } from './services/api';
 
-// Dashboard Component
+
 const Dashboard = () => {
   const [selectedDocument, setSelectedDocument] = useState(null);
   const [refreshTrigger, setRefreshTrigger] = useState(0);
@@ -119,27 +119,27 @@ const Dashboard = () => {
   );
 };
 
-// Protected Route Component
+
 const ProtectedRoute = ({ children }) => {
   return isAuthenticated() ? children : <Navigate to="/login" replace />;
 };
 
-// Public Route Component (redirects to dashboard if authenticated)
+
 const PublicRoute = ({ children }) => {
   return !isAuthenticated() ? children : <Navigate to="/dashboard" replace />;
 };
 
-// Main App Component
+
 const App = () => {
   const [loading, setLoading] = useState(true);
   const [isErrorLinkHovered, setIsErrorLinkHovered] = useState(false);
 
   useEffect(() => {
-    // Check authentication status on app load
+
     const checkAuth = async () => {
       try {
         if (isAuthenticated()) {
-          // Optionally verify token with backend
+          
           await authAPI.verifyToken();
         }
       } catch (error) {
@@ -237,17 +237,17 @@ const App = () => {
 
 const styles = {
   appContainer: {
-    background: 'linear-gradient(135deg, #0f172a, #1e3a8a)', // Dark to vibrant blue gradient
+    background: 'linear-gradient(135deg, #0f172a, #1e3a8a)', 
     minHeight: '100vh',
   },
   dashboardContainer: {
     minHeight: '100vh',
-    background: 'linear-gradient(135deg, #0f172a, #1e3a8a)', // Match app background
+    background: 'linear-gradient(135deg, #0f172a, #1e3a8a)',
     padding: '40px 20px',
   },
   header: {
-    background: 'linear-gradient(90deg, #1e3a8a, #3b82f6)', // Vibrant blue gradient
-    boxShadow: '0 4px 20px rgba(59, 130, 246, 0.4), 0 0 15px rgba(124, 58, 237, 0.3)', // Neon glow
+    background: 'linear-gradient(90deg, #1e3a8a, #3b82f6)', 
+    boxShadow: '0 4px 20px rgba(59, 130, 246, 0.4), 0 0 15px rgba(124, 58, 237, 0.3)', 
     position: 'sticky',
     top: 0,
     zIndex: 1000,
@@ -292,7 +292,7 @@ const styles = {
     opacity: 0.9,
   },
   logoutButton: {
-    background: 'linear-gradient(45deg, #dc2626, #f87171)', // Red gradient
+    background: 'linear-gradient(45deg, #dc2626, #f87171)',
     color: 'white',
     border: 'none',
     borderRadius: '8px',
@@ -330,9 +330,9 @@ const styles = {
     flexDirection: 'column',
   },
   section: {
-    background: 'linear-gradient(135deg, #1e3a8a, #3b82f6)', // Vibrant blue gradient
+    background: 'linear-gradient(135deg, #1e3a8a, #3b82f6)', 
     borderRadius: '16px',
-    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3), 0 0 20px rgba(59, 130, 246, 0.4)', // Neon glow
+    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3), 0 0 20px rgba(59, 130, 246, 0.4)', 
     padding: '24px',
     animation: 'fadeIn 0.3s ease-in',
   },
@@ -346,7 +346,7 @@ const styles = {
   selectedDoc: {
     marginBottom: '16px',
     padding: '12px',
-    background: 'linear-gradient(45deg, #1e40af, #3b82f6)', // Blue gradient
+    background: 'linear-gradient(45deg, #1e40af, #3b82f6)', 
     borderRadius: '10px',
     boxShadow: '0 4px 15px rgba(59, 130, 246, 0.4)',
   },
@@ -373,7 +373,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    background: 'linear-gradient(135deg, #0f172a, #1e3a8a)', // Match app background
+    background: 'linear-gradient(135deg, #0f172a, #1e3a8a)', 
   },
   loadingContent: {
     textAlign: 'center',
@@ -382,7 +382,7 @@ const styles = {
     width: '48px',
     height: '48px',
     border: '4px solid rgba(255, 255, 255, 0.3)',
-    borderTop: '4px solid #7c3aed', // Purple accent
+    borderTop: '4px solid #7c3aed', 
     borderRadius: '50%',
     animation: 'spin 1s linear infinite',
     boxShadow: '0 0 20px rgba(124, 58, 237, 0.5)',
@@ -398,7 +398,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    background: 'linear-gradient(135deg, #0f172a, #1e3a8a)', // Match app background
+    background: 'linear-gradient(135deg, #0f172a, #1e3a8a)',
   },
   errorContent: {
     textAlign: 'center',
@@ -420,7 +420,7 @@ const styles = {
     fontSize: '16px',
     color: '#ffffff',
     textDecoration: 'none',
-    background: 'linear-gradient(45deg, #4f46e5, #7c3aed)', // Purple gradient
+    background: 'linear-gradient(45deg, #4f46e5, #7c3aed)', 
     padding: '8px 16px',
     borderRadius: '8px',
     boxShadow: '0 4px 15px rgba(79, 70, 229, 0.4)',
