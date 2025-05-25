@@ -20,7 +20,7 @@ class Document(models.Model):
         return f"{self.original_filename} - {self.user.username}"
 
     def delete(self, *args, **kwargs):
-        # Delete the file when the model instance is deleted
+ 
         if self.file:
             if os.path.isfile(self.file.path):
                 os.remove(self.file.path)
